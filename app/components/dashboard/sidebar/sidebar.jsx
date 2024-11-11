@@ -82,7 +82,7 @@ const menuItems = [
 function sidebar() {
   return (
     <div>
-      <div >
+      <div className='mb-6 ' >
         <Image
           
           src="/noavatar.png"
@@ -91,8 +91,8 @@ function sidebar() {
           height="50"
         />
         <div >
-          <span >Edward Mile</span>
-          <span >Administrator</span>
+          <p >Edward Mile</p>
+          <p >Administrator</p>
         </div>
       </div>
       <ul >
