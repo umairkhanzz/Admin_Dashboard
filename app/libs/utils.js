@@ -1,11 +1,15 @@
+import mongoose from "mongoose";
+
 export const connectToDB = async () => {
-    mongoose.connect('mongodb://127.0.0.1:27017/test').
-    catch(error => handleError(error));
-  
-  // Or:
+  const connection = {};
+
   try {
-    await mongoose.connect('mongodb://127.0.0.1:27017/test');
+    if (connection.isConnected) return;
+    const db = await mongoose.connect(process.env.MONGO);
+    connection.isConnected = db.connections[0].readyState;
+    console.log("Database connected successfully");
   } catch (error) {
-    throw new Error(error)
+    console.error("Database connection error:", error);
+    throw new Error("Failed to connect to MongoDB");
   }
-}
+};
