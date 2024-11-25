@@ -2,12 +2,13 @@ import { fetchUsers } from '@/app/libs/data';
 import Link from 'next/link';
 import React from 'react';
 import Searchbar from '../../components/dashboard/search'
+import Pagination from '../../components/dashboard/pagination'
 
 async function UserPage({ searchParams }) {
 
   const q = searchParams?.q || "";
   const page = searchParams?.page || "1";
-  const users = await fetchUsers(q, page);
+  const {count , users} = await fetchUsers(q, page);
   console.log("users data", users);
 
   return (
@@ -48,6 +49,9 @@ async function UserPage({ searchParams }) {
             ))}
           </tbody>
         </table>
+        <div className="pagination">
+          <Pagination count={count} />
+        </div>
       </div>
     </>
   );

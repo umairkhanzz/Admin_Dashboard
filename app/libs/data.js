@@ -6,8 +6,9 @@ export const fetchUsers = async (q , page) => {
   const item_per_page = 2;
   try {
     await connectToDB();
+    const count = await User.find({ username: { $regex: regex } }).countDocuments(); // Correct count logic
     const users = await User.find({username: {$regex: regex}}).limit(item_per_page).skip(item_per_page*(page-1));
-    return users;
+    return {count , users};
 
   } catch (error) {
     console.log(error);

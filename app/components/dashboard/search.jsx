@@ -25,8 +25,8 @@ function search() {
   console.log(pathName)
 
   return (
-    <div className='p-5 '>
-      <input className='border-2 border-black p-3' onChange={handleChange} type="text" placeholder='Search anything here...' />
+    <div className='p-5 w-full'>
+      <input className='border-2 border-black w-full p-3' onChange={handleChange} type="text" placeholder='Search anything here...' />
     </div>
   )
 }
