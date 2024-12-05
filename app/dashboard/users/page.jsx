@@ -8,12 +8,15 @@ async function UserPage({ searchParams }) {
 
   const q = searchParams?.q || "";
   const page = searchParams?.page || "1";
-  const {count , users} = await fetchUsers(q, page);
+  const { count, users } = await fetchUsers(q, page);
   console.log("users data", users);
 
   return (
     <>
       <div>User Data Record</div>
+      <div className='mt-9'>
+        <Link className='text-red-700 bg-black p-4 ' href={"/dashboard/users/adduser"}>Add User</Link>
+      </div>
       <div>
         <Searchbar />
         <table>

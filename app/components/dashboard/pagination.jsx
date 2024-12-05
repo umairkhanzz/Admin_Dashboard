@@ -9,7 +9,7 @@ function Pagination({ count }) {
 
   const page = parseInt(searchParams.get("page") || "1");
   const params = new URLSearchParams(searchParams);
-  const itemsPerPage = 2;
+  const itemsPerPage = 4;
 
   // Determine if the Previous and Next buttons should be enabled
   const prev = page > 1;

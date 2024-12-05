@@ -3,7 +3,7 @@ import { connectToDB } from "./utils";
 
 export const fetchUsers = async (q , page) => {
   const regex = new RegExp(q , "i");
-  const item_per_page = 2;
+  const item_per_page = 4;
   try {
     await connectToDB();
     const count = await User.find({ username: { $regex: regex } }).countDocuments(); // Correct count logic
