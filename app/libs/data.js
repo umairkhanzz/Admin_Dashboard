@@ -15,3 +15,15 @@ export const fetchUsers = async (q , page) => {
     throw new Error(error);
   }
 }
+
+export const singleUsers = async (id) => {
+  try {
+    await connectToDB();
+    const singleUser = await User.findById(id);
+    return singleUser;
+
+  } catch (error) {
+    console.log(error);
+    throw new Error(error);
+  }
+}

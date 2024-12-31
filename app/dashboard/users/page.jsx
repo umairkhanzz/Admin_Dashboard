@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import Searchbar from '../../components/dashboard/search'
 import Pagination from '../../components/dashboard/pagination'
+import { deleteUser } from "@/app/libs/actions";
 
 async function UserPage({ searchParams }) {
 
@@ -43,9 +44,12 @@ async function UserPage({ searchParams }) {
                 <td className='p-2'>
                   <div className="btn">
                     <button>
-                      <Link href="/dashboard">View/Update</Link>
+                      <Link href={`/dashboard/users/${user.id}`}>View/Update</Link>
                     </button>
-                    <button>Delete</button>
+                    <form className='border-2 border-blue-500 rounded-' action={deleteUser}>
+                      <input type="hidden" name="id" value={user.id} />
+                      <button>Delete</button>
+                    </form>
                   </div>
                 </td>
               </tr>
